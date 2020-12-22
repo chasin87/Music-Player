@@ -11,11 +11,11 @@ import data from "./util";
 function App() {
   //State
   const [songs, setSongs] = useState(data());
-  const [currentSong, setCurrentSong] = useState(songs[6]);
+  const [currentSong, setCurrentSong] = useState(songs[0]);
   return (
     <div className="App">
       <Song currentSong={currentSong} />
-      <Player />
+      <Player currentSong={currentSong} />
     </div>
   );
 }
