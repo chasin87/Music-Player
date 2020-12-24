@@ -8,7 +8,7 @@ import Library from "./components/Library";
 import Nav from "./components/Nav";
 
 //import Utility
-import data from "./util";
+import data from "./data";
 
 function App() {
   const audioRef = useRef(null);
@@ -42,6 +42,7 @@ function App() {
         setSongInfo={setSongInfo}
         songs={songs}
         setCurrentSong={setCurrentSong}
+        setSongs={setSongs}
       />
       <Library
         audioRef={audioRef}
