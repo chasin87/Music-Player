@@ -40,9 +40,27 @@ function App() {
     });
   };
 
+  const activeLibraryHandler = (nextPrev) => {
+    const newSongs = songs.map((song) => {
+      if (song.id === nextPrev.id) {
+        return {
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
+      }
+    });
+    setSongs(newSongs);
+  };
+
   const songEndHandler = async () => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
     if (isPlaying) audioRef.current.play();
   };
 
@@ -60,6 +78,7 @@ function App() {
         songs={songs}
         setCurrentSong={setCurrentSong}
         setSongs={setSongs}
+        activeLibraryHandler={activeLibraryHandler}
       />
       <Library
         audioRef={audioRef}
