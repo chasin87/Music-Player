@@ -7,6 +7,7 @@
   img {
     width: 20%;
     border-radius: 50%;
+    box-shadow: 6px 6px 50px 17px rgba(0, 0, 0, 0.26);
   }
 
   h2 {
@@ -16,6 +17,11 @@
   h3 {
     font-size: 1rem;
   }
+  .songPlaying {
+    -webkit-animation: rotation 10s infinite linear;
+    -moz-animation: rotation 10s infinite linear;
+    animation: rotation 10s infinite linear;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -23,5 +29,22 @@
     img {
       width: 60%;
     }
+  }
+}
+
+@-moz-keyframes rotation {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotation {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes rotation {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }

@@ -50,6 +50,8 @@ h4 {
 .song-container img {
   width: 20%;
   border-radius: 50%;
+  -webkit-box-shadow: 6px 6px 50px 17px rgba(0, 0, 0, 0.26);
+          box-shadow: 6px 6px 50px 17px rgba(0, 0, 0, 0.26);
 }
 
 .song-container h2 {
@@ -60,9 +62,27 @@ h4 {
   font-size: 1rem;
 }
 
+.song-container .songPlaying {
+  -webkit-animation: rotation 10s infinite linear;
+  animation: rotation 10s infinite linear;
+}
+
 @media screen and (max-width: 768px) {
   .song-container img {
     width: 60%;
+  }
+}
+
+@-webkit-keyframes rotation {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
