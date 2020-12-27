@@ -6,6 +6,7 @@ const Library = ({
   setCurrentSong,
   audioRef,
   isPlaying,
+  setIsPlaying,
   setSongs,
   libraryStatus,
 }) => {
@@ -23,6 +24,7 @@ const Library = ({
             audioRef={audioRef}
             isPlaying={isPlaying}
             setSongs={setSongs}
+            setIsPlaying={setIsPlaying}
           />
         ))}
       </div>
