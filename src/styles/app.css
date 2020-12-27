@@ -3,6 +3,11 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
 }
 
 h1,
@@ -68,6 +73,9 @@ h4 {
 }
 
 @media screen and (max-width: 768px) {
+  .song-container {
+    min-height: 50vh;
+  }
   .song-container img {
     width: 60%;
   }
@@ -338,6 +346,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 11;
 }
 
 nav button {
@@ -346,8 +355,10 @@ nav button {
   border: none;
   border: 2px solid #414141;
   padding: 0.5rem;
+  border-radius: 0.2rem;
   -webkit-transition: all 0.3 ease-in-out;
   transition: all 0.3 ease-in-out;
+  outline: none;
 }
 
 nav button:hover {
@@ -355,9 +366,34 @@ nav button:hover {
   color: #fff;
 }
 
+nav .togglers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .togglers .library_toggle {
+  margin-left: 10px;
+  width: 80px;
+}
+
+nav .togglers .mode_toggle {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 @media screen and (max-width: 768px) {
-  nav button {
+  nav .togglers {
     z-index: 10;
+  }
+  nav .library_toggle,
+  nav .mode_toggle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 /*# sourceMappingURL=app.css.map */

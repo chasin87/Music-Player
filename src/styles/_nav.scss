@@ -3,24 +3,46 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 11;
+
   button {
     background: transparent;
     cursor: pointer;
     border: none;
     border: 2px solid (rgb(65, 65, 65));
     padding: 0.5rem;
+    border-radius: 0.2rem;
     transition: all 0.3 ease-in-out;
+    outline: none;
+
     &:hover {
       background: rgb(65, 65, 65);
       color: #fff;
+    }
+  }
+  .togglers {
+    display: flex;
+    align-items: center;
+    .library_toggle {
+      margin-left: 10px;
+      width: 80px;
+    }
+    .mode_toggle {
+      margin-left: 10px;
+      margin-right: 10px;
     }
   }
 }
 
 @media screen and (max-width: 768px) {
   nav {
-    button {
+    .togglers {
       z-index: 10;
+      // width: 60%;
+    }
+    .library_toggle,
+    .mode_toggle {
+      display: flex;
     }
   }
 }
