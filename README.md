@@ -2,6 +2,10 @@
  EfeLay <span style={{ fontWeight: 400 }}>Music player</span>
 </h1>
 
+<p align="center">
+<img src="src/ScreenShot/dayMode.png" width="80%" height="80%">
+</p>
+
 # Efelay Music Player
 
 Efelay Music Player is an application created with ReactJS where you can play music choose from the library.
@@ -16,10 +20,6 @@ Efelay Music Player is an application created with ReactJS where you can play mu
 - **[Screenshots](#screenshots)**
 
 ### App Demo:
-
-<p align="center">
-<img src="src/ScreenShot/dayMode.png" width="80%" height="80%">
-</p>
 
 #### Link to the app [Efelay Music Player](https://efelay-music-player.netlify.app/).
 
