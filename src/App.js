@@ -21,6 +21,7 @@ function App() {
     currentTime: 0,
     duration: 0,
     animationPercentage: 0,
+    volume: 1,
   });
   const [libraryStatus, setLibraryStatus] = useState(false);
 
@@ -94,6 +95,7 @@ function App() {
         ref={audioRef}
         src={currentSong.audio}
         onEnded={songEndHandler}
+        volume={songInfo.volume}
       ></audio>
     </div>
   );

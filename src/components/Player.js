@@ -5,6 +5,8 @@ import {
   faPause,
   faAngleLeft,
   faAngleRight,
+  faVolumeOff,
+  faVolumeUp,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Player = ({
@@ -41,21 +43,32 @@ const Player = ({
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
 
+  const dragHandlerVolume = (e) => {
+    audioRef.current.volume = e.target.value;
+    setSongInfo({ ...songInfo, volume: e.target.value });
+  };
+
+  const volumeHandler = (number) => {
+    audioRef.current.volume = number;
+    setSongInfo({ ...songInfo, volume: number });
+  };
+
   const skipTrackHandler = async (direction) => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     if (direction === "skip-forward") {
       await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
       activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
-    } else {
-      if (direction === "skip-back") {
-        if ((currentIndex - 1) % songs.length === -1) {
-          setCurrentSong(songs[songs.length - 1]);
-          activeLibraryHandler(songs[songs.length - 1]);
-          if (isPlaying) audioRef.current.play();
-          return;
-        }
+    }
+
+    if (direction === "skip-back") {
+      if ((currentIndex - 1) % songs.length === -1) {
+        await setCurrentSong(songs[songs.length - 1]);
+        activeLibraryHandler(songs[songs.length - 1]);
+        if (isPlaying) audioRef.current.play();
+        return;
       }
-      setCurrentSong(songs[(currentIndex - 1) % songs.length]);
+
+      await setCurrentSong(songs[(currentIndex - 1) % songs.length]);
       activeLibraryHandler(songs[(currentIndex - 1) % songs.length]);
     }
     if (isPlaying) audioRef.current.play();
@@ -64,6 +77,10 @@ const Player = ({
   //add the styles
   const trackAnim = {
     transform: `translateX(${songInfo.animationPercentage}%)`,
+  };
+
+  const trackAnimVolume = {
+    transform: `translateX(${songInfo.volume * 100}%)`,
   };
 
   const trackColors = {
@@ -105,6 +122,30 @@ const Player = ({
           className="skip-forward"
           size="2x"
           icon={faAngleRight}
+        />
+      </div>
+      <div className="volumeContr">
+        <FontAwesomeIcon
+          onClick={() => volumeHandler(0)}
+          size="1x"
+          icon={faVolumeOff}
+        />
+        <div className="track_volume">
+          <input
+            type="range"
+            min={0}
+            max={1}
+            step={0.01}
+            value={songInfo.volume}
+            onChange={dragHandlerVolume}
+          />
+
+          <div style={trackAnimVolume} className="animate-track_volume"></div>
+        </div>
+        <FontAwesomeIcon
+          onClick={() => volumeHandler(1)}
+          size="1x"
+          icon={faVolumeUp}
         />
       </div>
     </div>
