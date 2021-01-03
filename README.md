@@ -21,7 +21,7 @@ Efelay Music Player is an application created with ReactJS where you can play mu
 
 ### App Demo:
 
-#### Link to the app [Efelay Music Player](https://efelay-music-player.netlify.app/).
+#### Link to the app [Efelay Music Player](https://efelay-mp.netlify.app/).
 
 ### Goals for this project
 
