@@ -16,7 +16,7 @@ Efelay Music Player is an application created with ReactJS where you can play mu
 - **[Goals for this project](#goals-for-this-project)**
 - **[Technologies used](#technologies-used)**
 - **[User stories](#user-stories)**
-- **[Instalation](#instalation)**
+- **[Installation](#Installation)**
 - **[Screenshots](#screenshots)**
 
 ### App Demo:
@@ -41,7 +41,7 @@ The goal of this project is to build a React app and style it whit SCSS(Sass).
 - As a user, I want to choose the music from the library
 - As a user, I want to choose a theme in night or day mode
 
-### Instalation
+### Installation
 
 1. Clone the app
 2. cd into your project
